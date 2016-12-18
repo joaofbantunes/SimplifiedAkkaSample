@@ -73,7 +73,6 @@
     <Compile Include="Messages\ConsoleOutput.cs" />
     <Compile Include="Messages\Stuff.cs" />
     <Compile Include="Messages\StuffCountRequest.cs" />
-    <Compile Include="Messages\StuffCountRequestWithOriginalSender.cs" />
     <Compile Include="Messages\StuffCountRequestWrapper.cs" />
     <Compile Include="Messages\StuffCountResponse.cs" />
     <Compile Include="Messages\StuffWrapper.cs" />

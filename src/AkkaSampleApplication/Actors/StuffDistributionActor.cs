@@ -29,7 +29,7 @@ namespace CodingMilitia.AkkaSampleApplication.Actors
         private Task HandleStuffCountRequestWrapperAsync(StuffCountRequestWrapper stuffCountRequestWrapper)
         {
             IActorRef stuffHandler = GetStuffHandler(stuffCountRequestWrapper.StuffHandlerId);
-            stuffHandler.Tell(new StuffCountRequestWithOriginalSender { OriginalSender = Sender, StuffCountRequest = stuffCountRequestWrapper.StuffCountRequest });
+            stuffHandler.Forward(stuffCountRequestWrapper.StuffCountRequest);
             return Task.CompletedTask;
         }
 

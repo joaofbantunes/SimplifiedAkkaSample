@@ -18,7 +18,7 @@ namespace CodingMilitia.AkkaSampleApplication.Actors
             _consoleWriterActor = consoleWriterActor;
 
             ReceiveAsync<Stuff>(HandleStuffAsync);
-            ReceiveAsync<StuffCountRequestWithOriginalSender>(HandleStuffCountAsync);
+            ReceiveAsync<StuffCountRequest>(HandleStuffCountAsync);
         }
 
         private Task HandleStuffAsync(Stuff stuff)
@@ -28,9 +28,9 @@ namespace CodingMilitia.AkkaSampleApplication.Actors
             return Task.CompletedTask;
         }
 
-        private Task HandleStuffCountAsync(StuffCountRequestWithOriginalSender request)
+        private Task HandleStuffCountAsync(StuffCountRequest request)
         {
-            request.OriginalSender.Tell(new StuffCountResponse { Count = _messageCount });
+            Sender.Tell(new StuffCountResponse { Count = _messageCount });
             return Task.CompletedTask;
         }
 
